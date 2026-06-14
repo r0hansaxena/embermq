@@ -1,0 +1,20 @@
+[package]
+name = "embermq"
+version = "0.1.0"
+edition = "2024"
+description = "A tiny high-performance pub/sub message broker"
+
+[dependencies]
+tokio = { version = "1", features = [
+    "rt-multi-thread",
+    "net",
+    "io-util",
+    "sync",
+    "time",
+    "macros",
+    "signal",
+] }
+
+[profile.release]
+lto = true
+codegen-units = 1
